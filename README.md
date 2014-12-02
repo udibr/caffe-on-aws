@@ -3,9 +3,10 @@ caffe-on-aws
 [Caffee](http://caffe.berkeleyvision.org/) is the state of the art in deeplearning.
 
 
-I've started with an AWS image "Ubuntu Server 14.04 LTS (HVM) - CUDA 6.5 - ami-2cbf3e44"
-logged in to the machine and run the following
+I've started with an AWS image "Ubuntu Server 14.04 LTS (HVM) - CUDA 6.5 - ami-2cbf3e44".
+I have used a security policy which allowed me to connect to port 888.
 
+On the machine run
 ```bash
 sudo rm -rf cuda_6.5.14_linux_64.run nvidia_installers/
 sudo apt-get update
@@ -29,7 +30,11 @@ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out myce
 ipython profile create nbserver
 ```
 You need to edit `/home/ubuntu/.ipython/profile_nbserver/ipython_notebook_config.py`
-see [instructions](http://ipython.org/ipython-doc/1/interactive/public_server.html)
+see [instructions](http://ipython.org/ipython-doc/1/interactive/public_server.html.)
+You can now run an ipython notebook server with the following command:
+```bash
+ipython notebook --profile nbserver
+```
 
 Finally I was ready to install caffe
 ```bash
@@ -39,8 +44,8 @@ cp Makefile.config.example Makefile.config
 mv $HOME/anaconda/lib/libm.so $HOME/anaconda/lib/libm.so.tmp
 mv /home/ubuntu/anaconda/lib/libm.so.6 /home/ubuntu/anaconda/lib/libm.so.6.tmp
 ```
-You need to edt Makefile.config
-<pre>
+You need to edit Makefile.config
+```
 27,28c27,28
 <               -gencode arch=compute_50,code=sm_50 \
 <               -gencode arch=compute_50,code=compute_50
@@ -71,28 +76,26 @@ You need to edt Makefile.config
 ---
 > PYTHON_LIB := /usr/lib
 > # PYTHON_LIB := $(HOME)/anaconda/lib
-</pre>
-
+```
+and make caffe
 ```bash
 make all
 make test
 ```
-
 Add the following to end of `~/.bashrc`
 ```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ubuntu/anaconda/lib/
 export PATH=/usr/local/cuda/bin:$PATH
 ```
-
 now you can run caffe
+```bash
+make runtest
+./data/mnist/get_mnist.sh
+./examples/mnist/create_mnist.sh
+./examples/mnist/train_lenet.sh
+```
+you can switch between GPU and CPU usage by editing `examples/mnist/lenet_solver.prototxt`
 
-  make runtest
-  ./data/mnist/get_mnist.sh
-  ./examples/mnist/create_mnist.sh
-  
-switch between GPU and CPU usage in `examples/mnist/lenet_solver.prototxt`
-
-  ./examples/mnist/train_lenet.sh
 
 
