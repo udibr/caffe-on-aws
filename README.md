@@ -102,7 +102,5 @@ You can now run an ipython notebook server with the following command:
 cd
 ipython notebook --profile nbserver
 ```
-and connect to your machine from a browser on port 8888. For example on OS X terminal
-```
-open https://ec2-54-197-210-161.compute-1.amazonaws.com:8888/notebooks/caffe/examples/hdf5_classification.ipynb
+and connect to your machine from a browser on port 8888. [Example of a link](https://ec2-54-197-210-161.compute-1.amazonaws.com:8888/notebooks/caffe/examples/hdf5_classification.ipynb)
 ```
