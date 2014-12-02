@@ -4,7 +4,7 @@ caffe-on-aws
 
 
 I've started with an AWS image "Ubuntu Server 14.04 LTS (HVM) - CUDA 6.5 - ami-2cbf3e44".
-I have used a security policy which allowed me to connect to port 888.
+I have used a security policy which allowed me to connect to port 8888.
 
 On the machine run
 ```bash
@@ -82,7 +82,7 @@ and make caffe
 make all
 make test
 ```
-Add the following to end of `~/.bashrc`
+Add the following to end of `~/.bashrc` and re-login
 ```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ubuntu/anaconda/lib/
