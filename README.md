@@ -16,7 +16,7 @@ sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compi
 sudo apt-get install git
 ```
 
-Next I installed anaconda
+Next I installed anaconda (you will probably have to update the link to anaconda found at http://continuum.io/downloads )
 ```bash
 wget http://09c8d0b2229f813c1b93-c95ac804525aac4b6dba79b00b39d1d3.r79.cf1.rackcdn.com/Anaconda-2.1.0-Linux-x86_64.sh
 bash Anaconda-2.1.0-Linux-x86_64.sh
