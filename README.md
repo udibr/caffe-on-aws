@@ -84,6 +84,13 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ubuntu/anaconda/lib/
 export PATH=/usr/local/cuda/bin:$PATH
 ```
+If you want to have a python interface to Caffe do the following:
+```bash
+cd python
+for req in $(cat requirements.txt); do pip install $req; done
+cd ..
+make pycaffe
+```
 now you can run caffe
 ```bash
 make runtest
