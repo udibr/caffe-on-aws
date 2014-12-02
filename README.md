@@ -91,6 +91,8 @@ export PATH=/usr/local/cuda/bin:$PATH
 now you can run caffe
 ```bash
 make runtest
+```
+or run a full network, for example [LeNet](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 ./data/mnist/get_mnist.sh
 ./examples/mnist/create_mnist.sh
 ./examples/mnist/train_lenet.sh
