@@ -31,10 +31,6 @@ ipython profile create nbserver
 ```
 You need to edit `/home/ubuntu/.ipython/profile_nbserver/ipython_notebook_config.py`
 see [instructions](http://ipython.org/ipython-doc/1/interactive/public_server.html.)
-You can now run an ipython notebook server with the following command:
-```bash
-ipython notebook --profile nbserver
-```
 
 Finally I was ready to install caffe
 ```bash
@@ -101,4 +97,12 @@ or run a full network, for example [LeNet](http://caffe.berkeleyvision.org/gathe
 you can switch between GPU and CPU usage by editing `examples/mnist/lenet_solver.prototxt`
 
 
-
+You can now run an ipython notebook server with the following command:
+```bash
+cd
+ipython notebook --profile nbserver
+```
+and connect to your machine from a browser on port 8888. For example on OS X terminal
+```
+open https://ec2-54-197-210-161.compute-1.amazonaws.com:8888/notebooks/caffe/examples/hdf5_classification.ipynb
+```
