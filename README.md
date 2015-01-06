@@ -110,9 +110,8 @@ cd
 ipython notebook --profile nbserver
 ```
 and connect to your machine from a browser on port 8888. [Example of a link](https://ec2-54-197-210-161.compute-1.amazonaws.com:8888/notebooks/caffe/examples/hdf5_classification.ipynb)
-```
 
-if you get an error message about missing TIFF you may need to rebiod openCV without it:
+If you get an error message about missing TIFF you may need to rebiod openCV without it:
 ```bash
 curl http://sourceforge.net/projects/opencvlibrary/files/latest/download >opencv-2.4.10.zip
 unzip opencv-2.4.10.zip
